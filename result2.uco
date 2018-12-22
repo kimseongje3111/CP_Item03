@@ -1,0 +1,51 @@
+           sym 1 1 10
+           sym 1 11 1
+           sym 1 12 1
+two        proc 0 2 2
+           ldc 1
+           ldc 2
+           retv
+           end
+main       proc 14 2 2
+           sym 2 1 1
+           sym 2 2 10
+           sym 2 12 1
+           sym 2 13 1
+           sym 2 14 1
+           ldc 1
+           str 2 12
+           ldc 2
+           str 2 13
+           ldc 3
+           str 2 14
+           ldc 5
+           lda 2 2
+           add
+           ldc 10
+           sti
+           ldc 5
+           lda 2 2
+           add
+           ldi
+           str 2 1
+           lod 2 1
+           ldc 10
+           ne
+           fjp $$0
+           lod 2 1
+           inc
+           str 2 1
+$$0        nop
+           ldc 0
+           str 2 1
+           ldp
+           lod 2 1
+           call write
+           ldp
+           lda 2 13
+           call read
+           end
+           bgn 12
+           ldp
+           call main
+           end
